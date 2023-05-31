@@ -21,6 +21,7 @@ public class User {
     private byte age ;
     @Email
     private String email;
+    @NotEmpty
     @Pattern(regexp="(^$|[0-9]{10})")
     private String phoneNumber;
     public User(Long id, String firstName, String lastName, byte age, String email, String phoneNumber) {
