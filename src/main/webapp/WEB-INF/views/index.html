@@ -35,6 +35,11 @@
      <input type="text" th:field="*{age}" id="age" >
      <p th:if="${#fields.hasErrors('age')}" th:error="*{email}" class="alert">I'm not 18 yet</p>
    </div>
+    <div>
+     <label for="phoneNumber">PhoneNumber</label>
+     <input type="text" th:field="*{age}" id="phoneNumber" >
+     <p th:if="${#fields.hasErrors('phoneNumber')}" th:error="*{phoneNumber}" class="alert">Phone number is not in the correct format</p>
+   </div>
     <button type="submit">Post</button>
 </form>
 </body>

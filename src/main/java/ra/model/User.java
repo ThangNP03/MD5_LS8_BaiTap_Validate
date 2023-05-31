@@ -4,10 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Entity
 public class User {
@@ -24,16 +21,26 @@ public class User {
     private byte age ;
     @Email
     private String email;
-
-    public User() {
-    }
-
-    public User(Long id, String firstName, String lastName, byte age, String email) {
+    @Pattern(regexp="(^$|[0-9]{10})")
+    private String phoneNumber;
+    public User(Long id, String firstName, String lastName, byte age, String email, String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public User() {
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getLastName() {
